@@ -2,7 +2,11 @@
 
 ## 前置作業
 
-### 1. Access token 以及 Secret
+### 1. Fork
+
+將這個專案 Fork 到你的 GitHub 帳號底下，並且 clone 下來。
+
+### 2. Access token 以及 Secret
 
 開始之前我們必須先將 Line Bot API 的 Access Token 以及 Client Secret 設定在
 `.env` 檔案裡，以利接下來的本機端開發。你會需要創建一個叫做 `.env` 的檔案並在裡
@@ -17,7 +21,7 @@ LINE_BOT_SECRET=把你的 secret 放在這裡
 (long-lived)" 欄位裡按下 "Issue" 以後取得；而 secret 可以在 Basic Information
 中的 "Channel secret" 取得。
 
-### 2. 安裝相關套件
+### 3. 安裝相關套件
 
 在 command line 執行以下指令：
 
@@ -25,7 +29,7 @@ LINE_BOT_SECRET=把你的 secret 放在這裡
 pip install -r requirements.txt
 ```
 
-### 3. 啟動 ngrok 並且設定 Line Bot 的 Webhook URL
+### 4. 啟動 ngrok 並且設定 Line Bot 的 Webhook URL
 
 請按照 "03. 使用 ngrok 測試" 中的指示啟動 ngrok。
 
