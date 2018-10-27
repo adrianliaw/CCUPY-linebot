@@ -34,15 +34,36 @@ def callback():
 
 ################### 接收並處理文字訊息 ##################
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
+import random
+
+lunch_choices = [
+    '胖老爹',
+    '肯德基',
+    '麥當勞',
+    '漢堡王',
+]
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
+    # print('EVENT:')
+    # print(event)
+    # print(type(event))
+    messages = []
+    if '晚餐吃什麼' in event.message.text:
+        messages.append(
+            TextSendMessage(text=random.choice(lunch_choices)),
+            )
+    if '哈' in event.message.text:
+        messages.append(
+            TextSendMessage(text='哈' * 20),
+            )
+    if messages:
+        line_bot_api.reply_message(event.reply_token, messages)
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='說點有意義的話好嗎'))
 #########################################################
 
 
 ####################### 執行 Flask ######################
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
